@@ -30,7 +30,7 @@ public class BirthImpl implements Ibirth {
     }
 
     private void convertToMsg(users user, List<BirthMsg> result) {
-        result.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getFirstName())));
+        result.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getLastName(), user.getFirstName())));
     }
 
     private List<users> getFromDB(LocalDate date) {

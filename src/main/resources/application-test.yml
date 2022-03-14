@@ -1,4 +1,4 @@
 
 lpac:
   service:
-    return-msg: Happy birthday!%s Happy birthday, dear %s!
+    return-msg: Happy birthday!%s Happy birthday, dear %s, %s!

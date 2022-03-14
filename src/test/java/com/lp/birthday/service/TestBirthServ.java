@@ -78,8 +78,8 @@ public class TestBirthServ {
 
         List<BirthMsg> actualUsersList = birthService.getBirthByDate(localDate);
         List<BirthMsg> expectedUsersList = new ArrayList<BirthMsg>();
-        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getFirstName())));
-        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user2.getFirstName())));
+        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getLastName(), user.getFirstName())));
+        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user2.getLastName(), user2.getFirstName())));
         
         assertEquals(expectedUsersList.size(), actualUsersList.size());
         assertEquals(expectedUsersList.get(0).getSubject(), actualUsersList.get(0).getSubject());
