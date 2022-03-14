@@ -27,14 +27,14 @@ public class TestBirthServ {
     @Value("${lpac.service.subject-msg}")
     private String subjectMsg;
 
-    @Value("${lpac.service.title-msg}")
-    private String titleMsg;
+    @Value("${lpac.service.content-msg}")
+    private String contentMsg;
 
-    @Value("${lpac.service.male-msg}")
-    private String maleMsg;
+    @Value("${lpac.service.elder-age}")
+    private String elderAge;
 
-    @Value("${lpac.service.female-msg}")
-    private String femaleMsg;
+    @Value("${lpac.service.elder-pic}")
+    private String elderPicture;
     
     @Autowired
     private Ibirth birthService;
@@ -66,7 +66,7 @@ public class TestBirthServ {
         user.setLastName("Lai");
         user.setEmail("miki.lai@corp.com");
         user.setGender("Female");
-        String birStr = "1993-04-05";
+        String birStr = "1950-04-05";
         Date date = Date.valueOf(birStr);
         user.setDateOfBirth(date);
         fakeUsersList.add(user);
@@ -87,14 +87,14 @@ public class TestBirthServ {
 
         List<BirthMsg> actualUsersList = birthService.getBirthByDate(localDate);
         List<BirthMsg> expectedUsersList = new ArrayList<BirthMsg>();
-        expectedUsersList.add(new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), femaleMsg)));
-        expectedUsersList.add(new BirthMsg(subjectMsg, String.format(titleMsg, user2.getFirstName(), maleMsg)));
+        expectedUsersList.add(new BirthMsg(subjectMsg, String.format(contentMsg, user.getFirstName()), elderPicture));
+        //expectedUsersList.add(new BirthMsg(subjectMsg, String.format(contentMsg, user.getFirstName()), elderPicture));
 
         assertEquals(expectedUsersList.size(), actualUsersList.size());
         assertEquals(expectedUsersList.get(0).getSubject(), actualUsersList.get(0).getSubject());
-        assertEquals(expectedUsersList.get(1).getSubject(), actualUsersList.get(1).getSubject());
+        //assertEquals(expectedUsersList.get(1).getSubject(), actualUsersList.get(1).getSubject());
         assertEquals(expectedUsersList.get(0).getContent(), actualUsersList.get(0).getContent());
-        assertEquals(expectedUsersList.get(1).getContent(), actualUsersList.get(1).getContent());
+        //assertEquals(expectedUsersList.get(1).getContent(), actualUsersList.get(1).getContent());
     }
 
 }

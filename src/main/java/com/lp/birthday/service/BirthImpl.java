@@ -20,24 +20,18 @@ public class BirthImpl implements Ibirth {
     private UserRepository userRepository;
 
     @Autowired
-    @Qualifier("Male")
-    private Igender maleService;
-
-    @Autowired
-    @Qualifier("Female")
-    private Igender femaleService;
+    private Ielder elderService;
 
     @Override
     public List<BirthMsg> getBirthByDate(LocalDate date) {
         List<BirthMsg> result = new ArrayList<BirthMsg>();
         List<users> birthUsers = getFromDB(date);
-        birthUsers.forEach(user -> convertToMsg(user, result));
+        birthUsers.forEach(user -> convertToMsg(user, result, date));
         return result;
     }
 
-    private void convertToMsg(users user, List<BirthMsg> result) {
-        maleService.buildBirthMsg(user, result);
-        femaleService.buildBirthMsg(user, result);
+    private void convertToMsg(users user, List<BirthMsg> result, LocalDate date) {
+        elderService.buildBirthMsg(user, result, date);
     }
 
     private List<users> getFromDB(LocalDate date) {
