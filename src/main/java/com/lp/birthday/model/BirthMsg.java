@@ -2,9 +2,11 @@ package com.lp.birthday.model;
 
 public class BirthMsg {
     private String subject;
+    private String content; 
 
-    public BirthMsg(String subject) {
+    public BirthMsg(String subject, String content) {
         this.subject = subject;
+        this.content = content;
     }
 
     public String getSubject() {
@@ -13,6 +15,14 @@ public class BirthMsg {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
 }

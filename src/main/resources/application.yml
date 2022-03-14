@@ -14,4 +14,11 @@ spring:
 
 lpac:
   service:
-    return-msg: Happy birthday!%s Happy birthday, dear %s!
+    subject-msg: Happy birthday!
+    title-msg: Happy birthday, dear %s! %s
+    male-msg: |
+      We offer special discount 20% off for the following items:
+      White Wine, iPhone X
+    female-msg: |
+      We offer special discount 50% off for the following items:
+      Cosmetic, LV Handbags

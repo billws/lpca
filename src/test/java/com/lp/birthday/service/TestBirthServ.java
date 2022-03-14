@@ -24,8 +24,17 @@ import static org.mockito.ArgumentMatchers.anyInt;
 @ActiveProfiles("test")
 public class TestBirthServ {
 
-    @Value("${lpac.service.return-msg}")
-    private String returnMsg;
+    @Value("${lpac.service.subject-msg}")
+    private String subjectMsg;
+
+    @Value("${lpac.service.title-msg}")
+    private String titleMsg;
+
+    @Value("${lpac.service.male-msg}")
+    private String maleMsg;
+
+    @Value("${lpac.service.female-msg}")
+    private String femaleMsg;
     
     @Autowired
     private Ibirth birthService;
@@ -65,8 +74,8 @@ public class TestBirthServ {
         user2.setID(3L);
         user2.setFirstName("Sherry");
         user2.setLastName("Chen");
-        user2.setEmail("miki.lai@corp.com");
-        user2.setGender("Female");
+        user2.setEmail("sherry.chen@corp.com");
+        user2.setGender("Male");
         String birStr2 = "1993-04-05";
         Date date2 = Date.valueOf(birStr2);
         user2.setDateOfBirth(date2);
@@ -78,12 +87,14 @@ public class TestBirthServ {
 
         List<BirthMsg> actualUsersList = birthService.getBirthByDate(localDate);
         List<BirthMsg> expectedUsersList = new ArrayList<BirthMsg>();
-        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getFirstName())));
-        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user2.getFirstName())));
-        
+        expectedUsersList.add(new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), femaleMsg)));
+        expectedUsersList.add(new BirthMsg(subjectMsg, String.format(titleMsg, user2.getFirstName(), maleMsg)));
+
         assertEquals(expectedUsersList.size(), actualUsersList.size());
         assertEquals(expectedUsersList.get(0).getSubject(), actualUsersList.get(0).getSubject());
         assertEquals(expectedUsersList.get(1).getSubject(), actualUsersList.get(1).getSubject());
+        assertEquals(expectedUsersList.get(0).getContent(), actualUsersList.get(0).getContent());
+        assertEquals(expectedUsersList.get(1).getContent(), actualUsersList.get(1).getContent());
     }
 
 }
