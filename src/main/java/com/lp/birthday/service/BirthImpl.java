@@ -13,7 +13,7 @@ import com.lp.birthday.entity.users;
 import com.lp.birthday.repository.UserRepository;
 
 @Service
-public class birthImpl implements Ibirth {
+public class BirthImpl implements Ibirth {
 
     @Value("${lpac.service.return-msg}")
     private String returnMsg;
