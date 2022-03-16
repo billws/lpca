@@ -3,7 +3,7 @@ package com.lp.birthday.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
-
+import java.util.Map;
 import com.lp.birthday.model.BirthMsg;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +20,7 @@ public class BirthImpl implements Ibirth {
     private UserRepository userRepository;
 
     @Autowired
-    @Qualifier("Male")
-    private Igender maleService;
-
-    @Autowired
-    @Qualifier("Female")
-    private Igender femaleService;
+    private Map<String, Igender> genderServices;
 
     @Override
     public List<BirthMsg> getBirthByDate(LocalDate date) {
@@ -36,8 +31,10 @@ public class BirthImpl implements Ibirth {
     }
 
     private void convertToMsg(users user, List<BirthMsg> result) {
-        maleService.buildBirthMsg(user, result);
-        femaleService.buildBirthMsg(user, result);
+        Igender genderService = genderServices.get(user.getGender());
+        if (null != genderService) {
+            genderService.buildBirthMsg(user, result);
+        }
     }
 
     private List<users> getFromDB(LocalDate date) {

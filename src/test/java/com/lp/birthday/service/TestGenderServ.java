@@ -3,7 +3,7 @@ package com.lp.birthday.service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
 import com.lp.birthday.entity.users;
 import com.lp.birthday.model.BirthMsg;
 import org.junit.jupiter.api.Test;
@@ -33,16 +33,9 @@ public class TestGenderServ {
 
     @Value("${lpac.service.female-msg}")
     private String femaleMsg;
-    
-    @Autowired
-    @Qualifier("Male")
-    private Igender maleService;
 
     @Autowired
-    @Qualifier("Female")
-    private Igender femaleService;
-
-
+    private Map<String, Igender> genderServices;
     
     @Test
     public void testFemale() {
@@ -58,7 +51,7 @@ public class TestGenderServ {
 
         BirthMsg expected = new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), femaleMsg));
         List<BirthMsg> actualUsersList = new ArrayList<BirthMsg>();
-        femaleService.buildBirthMsg(user, actualUsersList);
+        genderServices.get(user.getGender()).buildBirthMsg(user, actualUsersList);
         
         assertEquals(expected.getSubject(), actualUsersList.get(0).getSubject());
         assertEquals(expected.getContent(), actualUsersList.get(0).getContent());
@@ -78,7 +71,7 @@ public class TestGenderServ {
 
         BirthMsg expected = new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), maleMsg));
         List<BirthMsg> actualUsersList = new ArrayList<BirthMsg>();
-        maleService.buildBirthMsg(user, actualUsersList);
+        genderServices.get(user.getGender()).buildBirthMsg(user, actualUsersList);
         
         assertEquals(expected.getSubject(), actualUsersList.get(0).getSubject());
         assertEquals(expected.getContent(), actualUsersList.get(0).getContent());
@@ -92,14 +85,17 @@ public class TestGenderServ {
         user.setFirstName("Miki");
         user.setLastName("Lai");
         user.setEmail("miki.lai@corp.com");
-        user.setGender("Male");
+        user.setGender("Bisexual");
         String birStr = "1993-04-05";
         Date date = Date.valueOf(birStr);
         user.setDateOfBirth(date);
 
         BirthMsg expected = new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), femaleMsg));
         List<BirthMsg> actualUsersList = new ArrayList<BirthMsg>();
-        femaleService.buildBirthMsg(user, actualUsersList);
+        Igender genderService = genderServices.get(user.getGender());
+        if(genderService != null){
+            genderService.buildBirthMsg(user, actualUsersList);
+        }
         
         assertEquals(0, actualUsersList.size());
     }

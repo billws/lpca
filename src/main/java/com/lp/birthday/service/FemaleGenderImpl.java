@@ -11,8 +11,6 @@ import org.springframework.stereotype.Component;
 @Component("Female")
 public class FemaleGenderImpl implements Igender {
 
-    public final static String genderType = "Female";
-
     @Value("${lpac.service.subject-msg}")
     private String subjectMsg;
 
@@ -24,8 +22,6 @@ public class FemaleGenderImpl implements Igender {
 
     @Override
     public void buildBirthMsg(users user, List<BirthMsg> result) {
-        if (user.getGender().equals(FemaleGenderImpl.genderType)) {
-            result.add(new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), additionalMsg)));
-        }
+        result.add(new BirthMsg(subjectMsg, String.format(titleMsg, user.getFirstName(), additionalMsg)));
     }
 }
