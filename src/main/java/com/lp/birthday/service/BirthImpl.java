@@ -15,8 +15,11 @@ import com.lp.birthday.repository.UserRepository;
 @Service
 public class BirthImpl implements Ibirth {
 
-    @Value("${lpac.service.return-msg}")
-    private String returnMsg;
+    @Value("${lpac.service.title-msg}")
+    private String titleMsg;
+
+    @Value("${lpac.service.content-msg}")
+    private String contentMsg;
 
     @Autowired
     private UserRepository userRepository;
@@ -30,7 +33,7 @@ public class BirthImpl implements Ibirth {
     }
 
     private void convertToMsg(users user, List<BirthMsg> result) {
-        result.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getFirstName())));
+        result.add(new BirthMsg(titleMsg, String.format(contentMsg, user.getFirstName())));
     }
 
     private List<users> getFromDB(LocalDate date) {

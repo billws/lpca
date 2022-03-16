@@ -24,8 +24,11 @@ import static org.mockito.ArgumentMatchers.anyInt;
 @ActiveProfiles("test")
 public class TestBirthServ {
 
-    @Value("${lpac.service.return-msg}")
-    private String returnMsg;
+    @Value("${lpac.service.title-msg}")
+    private String titleMsg;
+
+    @Value("${lpac.service.content-msg}")
+    private String contentMsg;
     
     @Autowired
     private Ibirth birthService;
@@ -78,12 +81,12 @@ public class TestBirthServ {
 
         List<BirthMsg> actualUsersList = birthService.getBirthByDate(localDate);
         List<BirthMsg> expectedUsersList = new ArrayList<BirthMsg>();
-        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user.getFirstName())));
-        expectedUsersList.add(new BirthMsg(String.format(returnMsg, System.lineSeparator(), user2.getFirstName())));
+        expectedUsersList.add(new BirthMsg(titleMsg, String.format(contentMsg, user.getFirstName())));
+        expectedUsersList.add(new BirthMsg(titleMsg, String.format(contentMsg, user2.getFirstName())));
         
         assertEquals(expectedUsersList.size(), actualUsersList.size());
-        assertEquals(expectedUsersList.get(0).getSubject(), actualUsersList.get(0).getSubject());
-        assertEquals(expectedUsersList.get(1).getSubject(), actualUsersList.get(1).getSubject());
+        assertEquals(expectedUsersList.get(0).getContent(), actualUsersList.get(0).getContent());
+        assertEquals(expectedUsersList.get(1).getContent(), actualUsersList.get(1).getContent());
     }
 
 }
