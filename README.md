@@ -27,41 +27,41 @@ Result:
 
 Structure:
 
-![image](https://billws.github.io/lpca/images/V1-2.png)
+![image](https://github.com/billws/lpca/blob/main/images/V1-.png?raw=true)
 
 
 ### Problem2: Tailer-made Message for different gender (branch name: feature/V2)
 
 Result: 
 
-![image](https://billws.github.io/lpca/images/V2-1.png)
+![image](https://github.com/billws/lpca/blob/main/images/V2-1.png?raw=true)
 
 Structure:
 
-![image](https://billws.github.io/lpca/images/V2-2.png)
+![image](https://github.com/billws/lpca/blob/main/images/V2-2.png?raw=true)
 
 Important change:
 
 Using gender value from database to get the different service to generate the message.
 
-![image](https://billws.github.io/lpca/images/V2-3.png)
+![image](https://github.com/billws/lpca/blob/main/images/V2-3.png?raw=true)
 
 
 ### Problem3: Message with an Elder Picture for those whose age is over 49 (branch name: feature/V3)
 
 Result: 
 
-![image](https://billws.github.io/lpca/images/V3-1.png)
+![image](https://github.com/billws/lpca/blob/main/images/V3-1.png?raw=true)
 
 Structure:
 
-![image](https://billws.github.io/lpca/images/V3-2.png)
+![image](https://github.com/billws/lpca/blob/main/images/V3-2.png?raw=true)
 
 Important change:
 
 Create the new component for elder message.
 
-![image](https://billws.github.io/lpca/images/V3-3.png)
+![image](https://github.com/billws/lpca/blob/main/images/V3-3.png?raw=true)
 
 
 
@@ -69,17 +69,17 @@ Create the new component for elder message.
 
 Result: 
 
-![image](https://billws.github.io/lpca/images/V4-1.png)
+![image](https://github.com/billws/lpca/blob/main/images/V4-1.png?raw=true)
 
 Structure:
 
-![image](https://billws.github.io/lpca/images/V1-2.png)
+![image](https://github.com/billws/lpca/blob/main/images/V1-2.png?raw=true)
 
 Important change:
 
 Changed the template in application properties file.
 
-![image](https://billws.github.io/lpca/images/V4-3.png)
+![image](https://github.com/billws/lpca/blob/main/images/V4-3.png?raw=true)
 
 
 
@@ -88,34 +88,34 @@ Changed the template in application properties file.
 
 Result: 
 
-![image](https://billws.github.io/lpca/images/V1-1.png)
+![image](https://github.com/billws/lpca/blob/main/images/V1-1.png?raw=true)
 
 Structure:
 
-![image](https://billws.github.io/lpca/images/V1-2.png)
+![image](https://github.com/billws/lpca/blob/main/images/V1-2.png?raw=true)
 
 Important change:
 
 Used same code base but just only change the profiles for different database.
 
-![image](https://billws.github.io/lpca/images/V5-3.png)
+![image](https://github.com/billws/lpca/blob/main/images/V5-3.png?raw=true)
 
 
 ### Problem6: Simple Message but different output data format (branch name: feature/V6)
 
 Result: 
 
-![image](https://billws.github.io/lpca/images/V6-1.png)
+![image](https://github.com/billws/lpca/blob/main/images/V6-1.png?raw=true)
 
 Structure:
 
-![image](https://billws.github.io/lpca/images/V6-2.png)
+![image](https://github.com/billws/lpca/blob/main/images/V6-2.png?raw=true)
 
 Important change:
 
 Added a new model for XML tree also accept action return different response data format.
 
-![image](https://billws.github.io/lpca/images/V6-3.png)
+![image](https://github.com/billws/lpca/blob/main/images/V6-3.png?raw=true)
 
 
 
