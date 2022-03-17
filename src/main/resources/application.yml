@@ -1,17 +1,6 @@
 server:
   port: 8080
 
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/lpca
-    username: root
-    password: lpca
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-    hibernate:
-      ddl-auto: update
-
 lpac:
   service:
     return-msg: Happy birthday!%s Happy birthday, dear %s!

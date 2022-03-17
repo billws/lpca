@@ -8,8 +8,3 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
-
-
-lpac:
-  service:
-    return-msg: Happy birthday!%s Happy birthday, dear %s!

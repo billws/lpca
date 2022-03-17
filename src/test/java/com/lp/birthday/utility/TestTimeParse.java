@@ -2,6 +2,8 @@ package com.lp.birthday.utility;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+
 import java.time.LocalDate;
 import com.lp.birthday.util.TimeParse;
 
@@ -9,6 +11,7 @@ import com.lp.birthday.util.TimeParse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class TestTimeParse {
 
     @Test
