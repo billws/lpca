@@ -27,7 +27,7 @@ Result:
 
 Structure:
 
-![image](https://github.com/billws/lpca/blob/main/images/V1-.png?raw=true)
+![image](https://github.com/billws/lpca/blob/main/images/V1-2.png?raw=true)
 
 
 ### Problem2: Tailer-made Message for different gender (branch name: feature/V2)
